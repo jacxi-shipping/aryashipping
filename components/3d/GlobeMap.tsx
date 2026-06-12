@@ -5,9 +5,10 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Environment, SpotLight } from "@react-three/drei";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
+import * as topojson from "topojson-client";
 
 // We create a wrapper component for the ThreeGlobe instance
-function GlobeInstance({ arcsData, pointsData, gData, theme }: any) {
+function GlobeInstance({ arcsData, pointsData, gData, polygonsData, theme }: any) {
   const groupRef = useRef<THREE.Group>(null);
   const globeRef = useRef<any>(null);
 
@@ -35,6 +36,15 @@ function GlobeInstance({ arcsData, pointsData, gData, theme }: any) {
       });
 
       globe.globeMaterial(globeMaterial);
+
+      if (polygonsData && polygonsData.length > 0) {
+        globe
+          .polygonsData(polygonsData)
+          .polygonCapColor(() => theme === "light" ? "#d0d0d0" : "#1a2942")
+          .polygonSideColor(() => theme === "light" ? "#c0c0c0" : "#0a192f")
+          .polygonStrokeColor(() => theme === "light" ? "#a0a0a0" : "#2a3b5a")
+          .polygonAltitude(0.01);
+      }
 
       globe
         .arcsData(arcsData)
@@ -66,7 +76,7 @@ function GlobeInstance({ arcsData, pointsData, gData, theme }: any) {
         groupRef.current.remove(globeRef.current);
       }
     };
-  }, [theme, arcsData, pointsData, gData]);
+  }, [theme, arcsData, pointsData, gData, polygonsData]);
 
   // Slowly rotate the globe
   useFrame(() => {
@@ -117,9 +127,20 @@ const ARCS = [
 export default function GlobeMap() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [countries, setCountries] = useState<any[]>([]);
 
   useEffect(() => {
     setMounted(true);
+
+    // Load countries data
+    fetch('/countries.json')
+      .then(res => res.json())
+      .then(topoData => {
+        // Convert topojson to geojson
+        const geoData = topojson.feature(topoData, topoData.objects.countries) as any;
+        setCountries(geoData.features);
+      })
+      .catch(err => console.error("Failed to load countries map data", err));
   }, []);
 
   const arcsData = useMemo(() => ARCS.map(arc => ({
@@ -170,6 +191,7 @@ export default function GlobeMap() {
           arcsData={arcsData}
           pointsData={pointsData}
           gData={gData}
+          polygonsData={countries}
           theme={theme}
         />
 
