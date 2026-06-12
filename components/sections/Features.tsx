@@ -74,7 +74,7 @@ export default function Features() {
                 ref={el => {
                   if (el) cardsRef.current[i] = el;
                 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-colors hover:bg-white/10"
+                className="group relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-8 backdrop-blur-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10"
               >
                 <div className="absolute -right-4 -top-4 opacity-10 transition-transform group-hover:scale-110 group-hover:opacity-20 text-[#00a3ff]">
                   <Icon className="w-32 h-32" />
@@ -84,7 +84,7 @@ export default function Features() {
                     <Icon className="w-10 h-10" />
                   </div>
                   <h3 className="mb-2 text-xl font-bold">{feature.title}</h3>
-                  <p className="text-sm text-white/60">{feature.desc}</p>
+                  <p className="text-sm text-black/60 dark:text-white/60">{feature.desc}</p>
                 </div>
 
                 <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#00a3ff]/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />

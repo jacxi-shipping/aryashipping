@@ -1,10 +1,11 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Environment, Float, OrbitControls, ContactShadows, SpotLight } from "@react-three/drei";
+import { Environment, Float, ContactShadows, SpotLight } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useTheme } from "next-themes";
 
 function AbstractShape() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -35,6 +36,7 @@ function AbstractShape() {
 
 function FloatingContainer() {
   const meshRef = useRef<THREE.Mesh>(null);
+  const { theme } = useTheme();
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -48,7 +50,7 @@ function FloatingContainer() {
       <mesh ref={meshRef} position={[-2, 0.5, -2]}>
         <boxGeometry args={[3, 1.2, 1.2]} />
         <meshPhysicalMaterial
-          color="#0a192f"
+          color={theme === "light" ? "#f0f0f0" : "#0a192f"}
           metalness={0.6}
           roughness={0.2}
           envMapIntensity={0.5}
