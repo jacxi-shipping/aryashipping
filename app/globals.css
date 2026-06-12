@@ -18,12 +18,40 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  html[dir="rtl"] body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+  }
+
+  html[dir="rtl"] input,
+  html[dir="rtl"] select {
+    direction: rtl;
+  }
+
+  html[dir="rtl"] .uppercase,
+  html[dir="rtl"] .tracking-widest {
+    letter-spacing: 0;
+    text-transform: none;
+  }
 }
 
 /* Custom Utilities & Animations */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  html[dir="rtl"] .language-switcher-shell {
+    left: 1rem;
+    right: auto;
+  }
+
+  @media (min-width: 640px) {
+    html[dir="rtl"] .language-switcher-shell {
+      left: 1.5rem;
+      right: auto;
+    }
   }
 }
 

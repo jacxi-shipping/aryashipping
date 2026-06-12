@@ -3,33 +3,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "@/components/I18nProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const features = [
-  {
-    title: "Mersin Gateway",
-    desc: "Optimized route via Turkey. Bypass standard congestion points with our dedicated terminal agreements.",
-    icon: "🚢"
-  },
-  {
-    title: "Ro-Ro & Container",
-    desc: "Flexible loading options. Choose between fast Roll-on/Roll-off or secure containerized transport.",
-    icon: "🏗️"
-  },
-  {
-    title: "Afghanistan Inland",
-    desc: "Seamless handover at the border. We manage the complex logistics so you don't have to.",
-    icon: "🚛"
-  },
-  {
-    title: "Customs Clearing",
-    desc: "Pre-cleared paperwork. Our agents handle the bureaucratic friction before the vessel arrives.",
-    icon: "📄"
-  }
-];
-
 export default function Features() {
+  const { t, isRtl } = useI18n();
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
@@ -60,12 +39,12 @@ export default function Features() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16">
           <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl">
-            Uncompromising <br/> <span className="text-[#00a3ff]">Infrastructure.</span>
+            {t.features.heading} <br/> <span className="text-[#00a3ff]">{t.features.accent}</span>
           </h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, i) => (
+          {t.features.items.map((feature, i) => (
             <div
               key={i}
               ref={el => {
@@ -73,7 +52,7 @@ export default function Features() {
               }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-colors hover:bg-white/10"
             >
-              <div className="absolute -right-4 -top-4 text-8xl opacity-10 transition-transform group-hover:scale-110 group-hover:opacity-20">
+              <div className={`absolute -top-4 text-8xl opacity-10 transition-transform group-hover:scale-110 group-hover:opacity-20 ${isRtl ? "-left-4" : "-right-4"}`}>
                 {feature.icon}
               </div>
               <div className="relative z-10">

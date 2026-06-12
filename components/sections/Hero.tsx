@@ -3,8 +3,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { MoveRight } from "lucide-react";
+import { useI18n } from "@/components/I18nProvider";
 
 export default function Hero() {
+  const { t, isRtl } = useI18n();
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -48,7 +50,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00a3ff] opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00a3ff]"></span>
             </span>
-            Next-Gen Logistics
+            {t.hero.badge}
           </span>
         </div>
 
@@ -57,9 +59,9 @@ export default function Hero() {
           className="text-balance text-5xl font-black leading-[1.1] tracking-tight text-white sm:text-7xl lg:text-8xl"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
         >
-          Engineering the <br className="hidden sm:block" />
+          {t.hero.titlePrefix} <br className="hidden sm:block" />
           <span className="bg-gradient-to-r from-white via-white to-white/40 bg-clip-text text-transparent">
-            movement of luxury.
+            {t.hero.titleAccent}
           </span>
         </h1>
 
@@ -67,8 +69,7 @@ export default function Hero() {
           ref={subtitleRef}
           className="mx-auto mt-8 max-w-2xl text-balance text-lg text-white/60 sm:text-xl"
         >
-          High-control vehicle shipping from North America to Afghanistan.
-          Precision routing, real-time command, zero compromise.
+          {t.hero.subtitle}
         </p>
 
         <div ref={ctaRef} className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -76,15 +77,19 @@ export default function Hero() {
             href="#quote"
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-8 py-4 text-sm font-bold text-black transition-transform hover:scale-105 active:scale-95"
           >
-            <span className="relative z-10">Initiate Transport</span>
-            <MoveRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <span className="relative z-10">{t.hero.primaryCta}</span>
+            <MoveRight
+              className={`relative z-10 h-4 w-4 transition-transform ${
+                isRtl ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
+              }`}
+            />
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#00a3ff] to-[#00a3ff]/80 opacity-0 transition-opacity group-hover:opacity-100" />
           </a>
           <a
             href="#process"
             className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white/70 transition-colors hover:text-white"
           >
-            Explore Infrastructure
+            {t.hero.secondaryCta}
           </a>
         </div>
       </div>
