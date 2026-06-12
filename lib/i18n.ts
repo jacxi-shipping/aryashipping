@@ -45,6 +45,9 @@ export const translations = {
       description:
         "Secure vehicle shipping from the USA and Canada to Afghanistan through Mersin Port.",
     },
+    header: {
+      themeToggle: "Toggle theme",
+    },
     hero: {
       badge: "Next-Gen Logistics",
       titlePrefix: "Engineering the",
@@ -148,6 +151,9 @@ export const translations = {
       description:
         "له امریکا او کاناډا څخه افغانستان ته د مرسین بندر له لارې د موټرو خوندي لېږد.",
     },
+    header: {
+      themeToggle: "رنګ بدل کړئ",
+    },
     hero: {
       badge: "نوې لوژستیکي حللارې",
       titlePrefix: "د لوکس موټرو",
@@ -250,6 +256,9 @@ export const translations = {
       title: "آریا شیپینگ | لوجستیک ممتاز موتر",
       description:
         "انتقال امن موتر از امریکا و کانادا به افغانستان از طریق بندر مرسین.",
+    },
+    header: {
+      themeToggle: "تغییر رنگ",
     },
     hero: {
       badge: "لوجستیک نسل نو",

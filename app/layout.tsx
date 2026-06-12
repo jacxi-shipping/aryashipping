@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import I18nProvider from "@/components/I18nProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Arya Shipping | Premium Vehicle Logistics",
@@ -15,13 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className="dark">
-      <body className="bg-[#030609] text-white antialiased selection:bg-[#00a3ff]/30 selection:text-white">
-        <I18nProvider>
-          <SmoothScrolling>
-            {children}
-          </SmoothScrolling>
-        </I18nProvider>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <body className="bg-background text-foreground antialiased selection:bg-[#00a3ff]/30 selection:text-foreground transition-colors duration-300">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <I18nProvider>
+            <SmoothScrolling>
+              {children}
+            </SmoothScrolling>
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -12,38 +12,38 @@ export default function Quote() {
           <h2 className="text-4xl font-black uppercase tracking-tight sm:text-6xl">
             {t.quote.heading} <br/> <span className="text-[#00a3ff]">{t.quote.accent}</span>
           </h2>
-          <p className="mt-6 max-w-md text-lg text-white/60">
+          <p className="mt-6 max-w-md text-lg text-black/60 dark:text-white/60">
             {t.quote.intro}
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-4">
             {t.quote.stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div key={stat.label} className="rounded-xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
                 <div className="text-3xl font-black text-[#00a3ff]">{stat.value}</div>
-                <div className="mt-2 text-sm text-white/60">{stat.label}</div>
+                <div className="mt-2 text-sm text-black/60 dark:text-white/60">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <form className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a1017]/80 p-8 shadow-2xl backdrop-blur-xl sm:p-10">
+        <form className="relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#0a1017]/80 p-8 shadow-2xl backdrop-blur-xl sm:p-10">
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#00a3ff]/10 to-transparent opacity-50" />
 
           <div className="relative z-10 grid gap-6 sm:grid-cols-2">
             <label className="block space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/60">{t.quote.fields.origin}</span>
-              <select className="w-full appearance-none rounded-lg border border-white/10 bg-black/50 p-4 text-white outline-none transition-colors focus:border-[#00a3ff] focus:bg-black/80">
+              <span className="text-xs font-bold uppercase tracking-widest text-black/60 dark:text-white/60">{t.quote.fields.origin}</span>
+              <select className="w-full appearance-none rounded-lg border border-black/10 bg-white p-4 text-black outline-none transition-colors focus:border-[#00a3ff] focus:bg-white/90 dark:border-white/10 dark:bg-black/50 dark:text-white dark:focus:bg-black/80">
                 <option>{t.quote.countries.usa}</option>
                 <option>{t.quote.countries.canada}</option>
               </select>
             </label>
             <label className="block space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/60">{t.quote.fields.destination}</span>
-              <input readOnly value={t.quote.countries.afghanistan} className="w-full rounded-lg border border-white/10 bg-black/50 p-4 text-white/50 outline-none" />
+              <span className="text-xs font-bold uppercase tracking-widest text-black/60 dark:text-white/60">{t.quote.fields.destination}</span>
+              <input readOnly value={t.quote.countries.afghanistan} className="w-full rounded-lg border border-black/10 bg-white p-4 text-black/50 outline-none dark:border-white/10 dark:bg-black/50 dark:text-white/50" />
             </label>
             <label className="block space-y-2 sm:col-span-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/60">{t.quote.fields.vehicle}</span>
-              <input placeholder={t.quote.fields.vehiclePlaceholder} className="w-full rounded-lg border border-white/10 bg-black/50 p-4 text-white outline-none transition-colors focus:border-[#00a3ff] focus:bg-black/80 placeholder:text-white/20" />
+              <span className="text-xs font-bold uppercase tracking-widest text-black/60 dark:text-white/60">{t.quote.fields.vehicle}</span>
+              <input placeholder={t.quote.fields.vehiclePlaceholder} className="w-full rounded-lg border border-black/10 bg-white p-4 text-black outline-none transition-colors placeholder:text-black/20 focus:border-[#00a3ff] focus:bg-white/90 dark:border-white/10 dark:bg-black/50 dark:text-white dark:placeholder:text-white/20 dark:focus:bg-black/80" />
             </label>
 
             <button type="button" className="group relative mt-4 overflow-hidden rounded-lg bg-[#00a3ff] p-4 font-black text-[#03111d] transition-transform hover:scale-[1.02] active:scale-[0.98] sm:col-span-2">

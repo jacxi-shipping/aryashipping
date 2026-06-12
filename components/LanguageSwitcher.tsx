@@ -13,10 +13,10 @@ export default function LanguageSwitcher({ compact = false }: LanguageSwitcherPr
 
   return (
     <div
-      className={`flex items-center gap-2 ${compact ? "text-xs" : "rounded-full border border-white/10 bg-black/35 p-1.5 text-xs shadow-2xl backdrop-blur-xl"}`}
+      className={`flex items-center gap-2 ${compact ? "text-xs" : "rounded-full border border-black/10 bg-white/60 p-1.5 text-xs shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-black/35"}`}
       aria-label={t.footer.languageLabel}
     >
-      {!compact && <Languages className="h-4 w-4 text-white/50" aria-hidden="true" />}
+      {!compact && <Languages className="h-4 w-4 text-black/50 dark:text-white/50" aria-hidden="true" />}
       <div className="flex items-center gap-1" dir={isRtl ? "rtl" : "ltr"}>
         {locales.map((item) => {
           const meta = localeMeta[item];
@@ -30,7 +30,7 @@ export default function LanguageSwitcher({ compact = false }: LanguageSwitcherPr
               className={`min-w-10 rounded-full px-3 py-2 font-bold transition-colors ${
                 isActive
                   ? "bg-[#00a3ff] text-[#03111d]"
-                  : "text-white/50 hover:bg-white/10 hover:text-white"
+                  : "text-black/50 hover:bg-black/10 hover:text-black dark:text-white/50 dark:hover:bg-white/10 dark:hover:text-white"
               }`}
               lang={item}
               dir={meta.dir}
