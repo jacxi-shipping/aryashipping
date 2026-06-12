@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useMemo, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, Environment, SpotLight } from "@react-three/drei";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
 
@@ -25,10 +25,13 @@ function GlobeInstance({ arcsData, pointsData, gData, theme }: any) {
       const globe = new Globe();
       globeRef.current = globe;
 
-      const globeMaterial = new THREE.MeshPhongMaterial({
-        color: theme === "light" ? "#f0f0f0" : "#0f172a",
-        transparent: true,
-        opacity: 0.9,
+      const globeMaterial = new THREE.MeshPhysicalMaterial({
+        color: theme === "light" ? "#f0f0f0" : "#0a192f",
+        metalness: 0.6,
+        roughness: 0.2,
+        envMapIntensity: 0.5,
+        clearcoat: 1,
+        clearcoatRoughness: 0.1,
       });
 
       globe.globeMaterial(globeMaterial);
@@ -73,6 +76,18 @@ function GlobeInstance({ arcsData, pointsData, gData, theme }: any) {
   });
 
   return <group ref={groupRef} scale={[0.01, 0.01, 0.01]} position={[0, -0.5, 0]} />;
+}
+
+function CameraRig() {
+  const { camera, pointer } = useThree();
+  const vec = new THREE.Vector3();
+
+  useFrame(() => {
+    camera.position.lerp(vec.set(pointer.x * 0.5, pointer.y * 0.5, 3.5), 0.05);
+    camera.lookAt(0, -0.5, 0);
+  });
+
+  return null;
 }
 
 // Coordinates
@@ -136,11 +151,20 @@ export default function GlobeMap() {
   return (
     <div className="h-full w-full bg-transparent">
       <Canvas camera={{ position: [0, 0, 3.5], fov: 45 }}>
-        <color attach="background" args={["transparent"]} />
+
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} intensity={1.5} />
         <directionalLight position={[-10, -10, -10]} intensity={0.5} />
         <Environment preset="city" />
+        <SpotLight
+          position={[5, 5, 5]}
+          angle={0.15}
+          penumbra={1}
+          intensity={2}
+          color="#00a3ff"
+          castShadow
+        />
+
 
         <GlobeInstance
           arcsData={arcsData}
@@ -149,13 +173,7 @@ export default function GlobeMap() {
           theme={theme}
         />
 
-        <OrbitControls
-          enablePan={false}
-          enableZoom={true}
-          minDistance={1.5}
-          maxDistance={5}
-          autoRotate={false}
-        />
+        <CameraRig />
       </Canvas>
     </div>
   );
