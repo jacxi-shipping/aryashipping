@@ -53,7 +53,7 @@ export const translations = {
       titlePrefix: "Engineering the",
       titleAccent: "movement of luxury.",
       subtitle:
-        "High-control vehicle shipping from North America to Afghanistan. Precision routing, real-time command, zero compromise.",
+        "High-control vehicle shipping from the USA and Canada to Afghanistan via Mersin. Precision routing, real-time command, zero compromise.",
       primaryCta: "Initiate Transport",
       secondaryCta: "Explore Infrastructure",
     },
@@ -90,7 +90,7 @@ export const translations = {
         {
           num: "01",
           title: "Procurement & Pickup",
-          desc: "We retrieve the vehicle from any North American auction, dealership, or private address.",
+          desc: "We retrieve the vehicle from any auction, dealership, or private address in the USA or Canada.",
         },
         {
           num: "02",
@@ -132,7 +132,7 @@ export const translations = {
     },
     footer: {
       description:
-        "Engineered vehicle logistics from North America to Afghanistan. Precision, security, and absolute control.",
+        "Engineered vehicle logistics from the USA and Canada to Afghanistan via Mersin. Precision, security, and absolute control.",
       connect: "Connect",
       whatsapp: "WhatsApp Command",
       email: "info@aryashipping.com",
@@ -159,7 +159,7 @@ export const translations = {
       titlePrefix: "د لوکس موټرو",
       titleAccent: "خوځښت په دقت سمبالوو.",
       subtitle:
-        "له شمالي امریکا څخه افغانستان ته د موټرو باوري لېږد. دقیق مسیر، پر وخت څارنه، او بشپړ اطمینان.",
+        "له امریکا او کاناډا څخه د مرسین له لارې افغانستان ته د موټرو باوري لېږد. دقیق مسیر، پر وخت څارنه، او بشپړ اطمینان.",
       primaryCta: "لېږد پیل کړئ",
       secondaryCta: "زیرساخت وګورئ",
     },
@@ -196,7 +196,7 @@ export const translations = {
         {
           num: "۰۱",
           title: "پېرود او پورته کول",
-          desc: "موټر له هر شمالي امریکايي لیلام، ډیلرشپ، یا شخصي پتې څخه ترلاسه کوو.",
+          desc: "موټر په امریکا یا کاناډا کې له هر لیلام، ډیلرشپ، یا شخصي پتې څخه ترلاسه کوو.",
         },
         {
           num: "۰۲",
@@ -238,7 +238,7 @@ export const translations = {
     },
     footer: {
       description:
-        "له شمالي امریکا څخه افغانستان ته د موټرو دقیق، خوندي، او بشپړ کنټرول لرونکی لېږد.",
+        "له امریکا او کاناډا څخه د مرسین له لارې افغانستان ته د موټرو دقیق، خوندي، او بشپړ کنټرول لرونکی لېږد.",
       connect: "اړیکه",
       whatsapp: "د WhatsApp قومانده",
       email: "info@aryashipping.com",
@@ -265,7 +265,7 @@ export const translations = {
       titlePrefix: "حرکت موترهای لوکس را",
       titleAccent: "با مهندسی دقیق پیش می بریم.",
       subtitle:
-        "انتقال مطمئن موتر از امریکای شمالی به افغانستان. مسیر دقیق، نظارت لحظه ای، و اطمینان کامل.",
+        "انتقال مطمئن موتر از امریکا و کانادا به افغانستان از طریق مرسین. مسیر دقیق، نظارت لحظه ای، و اطمینان کامل.",
       primaryCta: "شروع انتقال",
       secondaryCta: "دیدن زیرساخت",
     },
@@ -302,7 +302,7 @@ export const translations = {
         {
           num: "۰۱",
           title: "خرید و دریافت",
-          desc: "موتر را از هر حراجی، نمایشگاه، یا آدرس شخصی در امریکای شمالی دریافت می کنیم.",
+          desc: "موتر را از هر حراجی، نمایشگاه، یا آدرس شخصی در امریکا یا کانادا دریافت می کنیم.",
         },
         {
           num: "۰۲",
@@ -344,7 +344,7 @@ export const translations = {
     },
     footer: {
       description:
-        "لوجستیک مهندسی شده موتر از امریکای شمالی به افغانستان؛ دقت، امنیت، و کنترول کامل.",
+        "لوجستیک مهندسی شده موتر از امریکا و کانادا به افغانستان از طریق مرسین؛ دقت، امنیت، و کنترول کامل.",
       connect: "ارتباط",
       whatsapp: "فرمان WhatsApp",
       email: "info@aryashipping.com",
