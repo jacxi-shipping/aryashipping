@@ -3,6 +3,7 @@ import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import Process from "@/components/sections/Process";
+import GlobalReach from "@/components/sections/GlobalReach";
 import Quote from "@/components/sections/Quote";
 import Footer from "@/components/sections/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Features />
         <Process />
+        <GlobalReach />
         <Quote />
         <Footer />
       </div>
