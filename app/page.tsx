@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import Process from "@/components/sections/Process";
 import GlobalReach from "@/components/sections/GlobalReach";
+import MobileApp from "@/components/sections/MobileApp";
 import Quote from "@/components/sections/Quote";
 import Footer from "@/components/sections/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
         <Features />
         <Process />
         <GlobalReach />
+        <MobileApp />
         <Quote />
         <Footer />
       </div>
